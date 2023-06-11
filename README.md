@@ -1,6 +1,6 @@
 # oops-interview-question
 Soon you guys will find all the important oops interview questions
-
+<span id="top1"></span>
 1. <a href="#1">What is the difference between C and C++?</a>
 2. <a href="#2">What are the key features of C++?</a>
 3. <a href="#3">Explain object-oriented programming (OOP) concepts in C++.</a>
@@ -10,7 +10,7 @@ Soon you guys will find all the important oops interview questions
 7. <a href="#7">What is the difference between private, protected, and public access specifiers?</a>
 8. <a href="#8">Explain the concept of inheritance in C++.</a>
 9. <a href="#9">What are virtual functions? Why are they used?</a>
-10. <a href="#10">What is polymorphism in C++?</a>
+10. <a href="#10">Real life example of object oriented programming?</a>
 11. <a href="#11">What is function overloading? How is it different from function overriding?</a>
 12. <a href="#12">What is a template in C++? How are templates used?</a>
 13. <a href="#13">What are the differences between pass-by-value and pass-by-reference?</a>
@@ -101,3 +101,485 @@ Soon you guys will find all the important oops interview questions
 98. <a href="#98">Explain the concept of SFINAE (Substitution Failure Is Not An Error) in C++.</a>
 99. <a href="#99">How do you handle file I/O in C++?</a>
 100. <a href="#100">Explain the concept of const correctness in C++.</a>
+
+
+## 1. <a id="1">What is the difference between C and C++?</a>
+**answer:-** C and C++ are both popular programming languages, but they have some key differences. Here are the main distinctions between the two:
+
+1. Programming Paradigm: C is a procedural programming language, meaning it follows a top-down approach where the program is divided into functions or procedures. C++ extends C and adds support for object-oriented programming (OOP), which allows you to create classes and objects to encapsulate data and behavior.
+
+2. OOP Support: C++ has built-in support for OOP, while C does not. In C++, you can use classes, objects, inheritance, polymorphism, and other OOP concepts to create more modular and reusable code. C, on the other hand, relies on procedural programming techniques and does not have native OOP constructs.
+
+3. Features and Abstractions: C++ offers several additional features and abstractions compared to C. It includes features like classes, templates, exceptions, namespaces, function overloading, operator overloading, and more. These features provide higher-level abstractions and make it easier to write complex programs compared to C.
+
+4. Compatibility: C++ is generally considered a superset of C. This means that most valid C programs can be compiled and run as C++ programs with few or no modifications. However, C++ introduces some changes and enhancements to the C language, so not all C code is valid in C++ without modifications.
+
+5. Standard Libraries: C++ includes the Standard Template Library (STL), which provides a collection of template classes and functions for common data structures and algorithms. The STL offers containers (like vectors, lists, and maps), algorithms (such as sorting and searching), and other utilities. C does not have a standard library as feature-rich as the C++ STL, but it does include the C Standard Library with functions for input/output, string manipulation, memory management, and other basic operations.
+
+6. Use Cases: C is often used for low-level programming, system-level programming, embedded systems, and building efficient and lightweight applications. It's popular in operating system development and writing device drivers. C++ is used in a wide range of applications, including game development, graphical user interfaces (GUIs), complex software systems, and large-scale projects that benefit from OOP concepts.
+
+In summary, C and C++ differ in terms of programming paradigms, OOP support, language features, standard libraries, and use cases. C++ builds upon C and provides additional capabilities for object-oriented programming, but C remains a powerful language for lower-level programming tasks.
+
+<a href="#top1">Go to top &#8593;</a>
+
+## 2. <a id="2">What are the key features of C++?</a>
+**answer:-** C++ is a powerful and versatile programming language that offers a range of key features. Here are some of the key features of C++:
+
+1. Object-Oriented Programming (OOP):
+   C++ supports object-oriented programming, allowing you to create classes and objects to encapsulate data and behavior. This feature enables concepts like inheritance, polymorphism, and encapsulation, making code organization and reusability easier.
+
+2. Classes and Objects:
+   C++ allows you to define classes to represent objects and define their properties (data members) and behavior (member functions). Objects are instances of classes that can be created and manipulated in code.
+
+3. Templates:
+   C++ supports templates, which allow you to write generic code that can work with different types. Templates facilitate the creation of functions and classes that can operate on various data types, providing flexibility and code reusability.
+
+4. Standard Template Library (STL):
+   The STL is a collection of template classes and functions that provide commonly used data structures (like vectors, lists, and maps) and algorithms (such as sorting and searching). The STL simplifies the implementation of complex data structures and algorithms in C++.
+
+5. Exception Handling:
+   C++ supports exception handling mechanisms, allowing you to catch and handle runtime errors and exceptions. It provides constructs like `try`, `catch`, and `throw` to manage exceptional conditions and perform error handling gracefully.
+
+6. Operator Overloading:
+   C++ allows you to overload operators, enabling you to define custom behaviors for operators when applied to objects of user-defined classes. This feature provides a natural and intuitive way to work with objects, making code more expressive and readable.
+
+7. Standard Library:
+   C++ comes with a rich standard library that provides various pre-defined functions and classes for performing common tasks. It includes functionality for input/output operations, string manipulation, mathematical operations, memory management, and more.
+
+8. Performance:
+   C++ allows fine-grained control over memory management and low-level programming, making it suitable for performance-critical applications. It supports features like pointers and direct memory manipulation, enabling developers to optimize code execution and memory usage.
+
+9. Interoperability:
+   C++ is compatible with C, allowing C code to be easily integrated into C++ programs. It provides the ability to call C functions from C++ code and vice versa, making it easy to leverage existing C libraries and codebases.
+
+10. Portability:
+    C++ is a standardized language, and compilers are available for various platforms and operating systems. This portability allows C++ programs to be developed and executed across different environments.
+
+These key features make C++ a popular choice for a wide range of applications, including system programming, game development, GUI applications, scientific computing, and more.
+
+<a href="#top1">Go to top &#8593;</a>
+
+## 3. <a id="3">Explain object-oriented programming (OOP) concepts in C++.</a>
+**answer:-** Object-oriented programming (OOP) is a programming paradigm that revolves around the concept of objects, which are instances of classes. C++ supports OOP and provides several features to implement OOP concepts. Here are the key OOP concepts in C++:
+
+1. Classes and Objects:
+   A class is a blueprint or a template that defines the structure and behavior of objects. It encapsulates data (in the form of member variables) and operations (in the form of member functions). An object is an instance of a class, created from the class blueprint. Objects have their own state (values of member variables) and behavior (invoking member functions).
+
+   Example:
+   ```cpp
+   class Rectangle {
+   private:
+       int width;
+       int height;
+
+   public:
+       Rectangle(int w, int h) : width(w), height(h) {}
+
+       int getArea() {
+           return width * height;
+       }
+   };
+
+   int main() {
+       Rectangle rect(5, 3);
+       int area = rect.getArea();
+       cout << "Area: " << area << endl;
+       return 0;
+   }
+   ```
+   In this example, `Rectangle` is a class with private member variables `width` and `height`, a constructor, and a member function `getArea()`. An object `rect` is created using the `Rectangle` class, and its `getArea()` function is called.
+
+2. Encapsulation:
+   Encapsulation is the principle of bundling data and methods together within a class, hiding the internal implementation details from the outside world. It provides data abstraction and protection, allowing controlled access to the internal state of an object through public interfaces (public member functions).
+
+3. Inheritance:
+   Inheritance allows a class to inherit the properties (member variables and member functions) of another class, known as the base class or superclass. The derived class or subclass inherits and extends the functionality of the base class. This concept promotes code reuse and facilitates the creation of class hierarchies.
+
+4. Polymorphism:
+   Polymorphism allows objects of different classes to be treated as objects of a common base class. It enables objects to be processed in a generic way, regardless of their specific types. Polymorphism is achieved through virtual functions and function overriding.
+
+5. Abstraction:
+   Abstraction is the process of simplifying complex systems by focusing on essential features and hiding unnecessary details. In C++, abstraction is achieved through classes and their public interfaces. Users of a class need not know the internal implementation details; they can work with the class through its abstracted interface.
+
+6. Message Passing:
+   Objects communicate with each other by sending messages. Message passing involves invoking member functions on objects to perform actions or access data. Objects interact and collaborate by exchanging messages to achieve the desired behavior.
+
+These OOP concepts in C++ promote modularity, code organization, reusability, and maintainability. They enable the creation of robust and scalable software systems by modeling real-world entities as objects and defining their behavior through classes and their relationships.
+
+<a href="#top1">Go to top &#8593;</a>
+
+## 4. <a id="4">What is the difference between a class and an object?</a>
+**answer:-** To understand the difference between a class and an object, let's consider a real-world example: the concept of a "Car."
+
+Class:
+In the context of programming, a class is like a blueprint or a template that defines the properties and behaviors that objects of that class will have. In our example, a class called "Car" would define what properties and behaviors a car should have. The class defines common characteristics shared by all cars.
+
+```cpp
+class Car {
+private:
+    string brand;
+    string model;
+    int year;
+
+public:
+    void startEngine() {
+        // Code to start the car's engine
+    }
+
+    void accelerate() {
+        // Code to accelerate the car
+    }
+
+    void brake() {
+        // Code to apply brakes to the car
+    }
+};
+```
+
+In this example, the "Car" class specifies properties like "brand," "model," and "year," and behaviors like "startEngine," "accelerate," and "brake." It provides a blueprint for creating car objects.
+
+Object:
+An object is an instance or occurrence of a class. It represents a specific car with its own unique characteristics and behaviors. When we create an object from the "Car" class, we can set specific values for its properties and utilize its behaviors.
+
+```cpp
+Car myCar;
+myCar.brand = "Toyota";
+myCar.model = "Camry";
+myCar.year = 2021;
+
+myCar.startEngine();
+myCar.accelerate();
+myCar.brake();
+```
+
+In this code, we create an object named "myCar" based on the "Car" class. We set specific values for its properties like "brand," "model," and "year." We can then call its behaviors such as "startEngine," "accelerate," and "brake" to perform actions specific to that car object.
+
+In summary, the class represents a blueprint that defines the properties and behaviors of a car, while an object is a specific instance of that class with its own unique state and behavior. The class acts as a template, and objects are created based on that template, representing individual instances in the real world.
+
+## 5. <a id="5">What is a constructor? How is it different from a regular member function?</a>
+**answer:-** A constructor is a special member function in a class that is responsible for initializing the object of that class. It is called automatically when an object is created and is used to set initial values to the object's data members or perform any necessary setup.
+
+Here are some key points about constructors and how they differ from regular member functions:
+
+1. Initialization: The primary purpose of a constructor is to initialize the object's data members to a valid state. It ensures that the object is ready to be used after it is created. Regular member functions, on the other hand, perform operations and computations on already initialized objects.
+
+2. Name and Return Type: Constructors have the same name as the class and do not have an explicit return type, not even `void`. This is different from regular member functions, which have unique names and may have different return types.
+
+3. Implicit Invocation: Constructors are implicitly called when an object is created, without the need for explicit invocation. Regular member functions, on the other hand, need to be explicitly called to execute their code.
+
+4. Multiple Constructors: A class can have multiple constructors, each with different parameter lists. This allows different ways of creating objects with different initializations. Regular member functions, however, are not tied to object creation and can be called multiple times after object creation.
+
+5. Destructor: Constructors have a counterpart called destructors, which are responsible for cleaning up resources and performing necessary cleanup tasks when an object is destroyed. Regular member functions do not have a specific counterpart for this purpose.
+
+Here's an example to illustrate the concept of constructors:
+
+```cpp
+class Rectangle {
+private:
+    int width;
+    int height;
+
+public:
+    // Constructor
+    Rectangle(int w, int h) : width(w), height(h) {
+        cout << "Constructor called!" << endl;
+    }
+
+    // Regular member function
+    int calculateArea() {
+        return width * height;
+    }
+};
+
+int main() {
+    Rectangle rect(5, 3);  // Constructor is implicitly called
+
+    int area = rect.calculateArea();  // Regular member function called
+    cout << "Area: " << area << endl;
+
+    return 0;
+}
+```
+
+In this example, the `Rectangle` class has a constructor that takes `width` and `height` as parameters and initializes the object's `width` and `height` data members. The constructor is automatically called when the `Rectangle` object `rect` is created. The `calculateArea()` function is a regular member function that performs a computation on the initialized object.
+
+In summary, constructors are special member functions used for initializing objects, while regular member functions perform operations on already initialized objects. Constructors are implicitly called during object creation and have the same name as the class, while regular member functions need explicit invocation.
+
+<a href="#top1">Go to top &#8593;</a>
+
+## 6. <a id="6">What is the destructor? When is it called?</a>
+**answer:-**A destructor is a special member function in a class that is responsible for cleaning up resources and performing necessary cleanup tasks when an object is destroyed or goes out of scope. It is called automatically when the lifetime of an object ends, either when it goes out of scope or when it is explicitly deleted.
+
+Here are some key points about destructors:
+
+1. Syntax: A destructor is identified by the same name as the class, preceded by a tilde (~), and does not take any parameters. It is defined with the same syntax as a regular member function but without any return type.
+
+2. Automatic Invocation: Destructors are automatically called when an object's lifetime ends. For objects created on the stack, the destructor is called when the object goes out of scope. For objects created on the heap using dynamic memory allocation, the destructor is called explicitly using the `delete` operator.
+
+3. Cleanup Tasks: Destructors are primarily used to release resources acquired by the object during its lifetime. This can include deallocating dynamically allocated memory, closing files, releasing locks, or performing any other necessary cleanup operations.
+
+4. No Explicit Invocation: Destructors cannot be called explicitly in code. They are invoked automatically by the system when the object's lifetime ends.
+
+Here's an example to illustrate the concept of destructors:
+
+```cpp
+#include <iostream>
+
+class Resource {
+private:
+    int* data;
+
+public:
+    Resource() {
+        data = new int[100];  // Allocate dynamic memory
+        std::cout << "Resource created." << std::endl;
+    }
+
+    ~Resource() {
+        delete[] data;  // Deallocate dynamic memory
+        std::cout << "Resource destroyed." << std::endl;
+    }
+};
+
+int main() {
+    {
+        Resource obj;  // Object created
+        // Code block where obj is in scope
+    }  // Object goes out of scope, destructor is called
+
+    std::cout << "End of program." << std::endl;
+
+    return 0;
+}
+```
+
+In this example, the `Resource` class represents a resource that acquires memory dynamically using the `new` operator. The destructor `~Resource()` is responsible for releasing the dynamically allocated memory using the `delete[]` operator. When the object `obj` goes out of scope at the end of the code block, the destructor is automatically called, printing "Resource destroyed."
+
+The output of this program will be:
+
+```
+Resource created.
+Resource destroyed.
+End of program.
+```
+
+The destructor is invoked automatically as soon as the object's lifetime ends, ensuring that the necessary cleanup tasks are performed. This is particularly useful for managing resources and preventing memory leaks or other resource-related issues.
+
+In summary, destructors are special member functions used to clean up resources and perform necessary cleanup tasks when an object's lifetime ends. They are automatically called when the object goes out of scope or is explicitly deleted.
+
+<a href="#top1">Go to top &#8593;</a>
+
+## 7. <a id="7">What is the difference between private, protected, and public access specifiers?</a>
+**answer:-** In C++, access specifiers are used to control the accessibility of class members (data members and member functions) from outside the class. The three access specifiers are: `private`, `protected`, and `public`. Here's an explanation of each specifier and its significance:
+
+1. Private:
+   - Members declared as `private` are accessible only within the class where they are declared. They are not accessible from outside the class, including derived classes.
+   - `private` members are used to encapsulate and hide internal implementation details, providing data abstraction and encapsulation.
+   - Private members can be accessed indirectly through public member functions, known as "getters" and "setters," which provide controlled access to the private members.
+
+   Example:
+   ```cpp
+   class MyClass {
+   private:
+       int privateData;
+
+   public:
+       void setPrivateData(int value) {
+           privateData = value;
+       }
+
+       int getPrivateData() {
+           return privateData;
+       }
+   };
+   ```
+
+2. Protected:
+   - Members declared as `protected` have the same accessibility as `private` members within the class, but they are also accessible to derived classes.
+   - `protected` members are used to provide access to derived classes for inheritance and to establish a hierarchy of class relationships.
+   - Protected members are not directly accessible from outside the class or unrelated classes.
+
+   Example:
+   ```cpp
+   class BaseClass {
+   protected:
+       int protectedData;
+   };
+
+   class DerivedClass : public BaseClass {
+   public:
+       void setProtectedData(int value) {
+           protectedData = value;
+       }
+
+       int getProtectedData() {
+           return protectedData;
+       }
+   };
+   ```
+
+3. Public:
+   - Members declared as `public` are accessible from anywhere, including outside the class and its derived classes.
+   - `public` members represent the interface of the class, providing access to the desired functionality from external code.
+   - Public members can be accessed directly without the need for any intermediary functions.
+
+   Example:
+   ```cpp
+   class MyClass {
+   public:
+       int publicData;
+
+       void publicFunction() {
+           // Code accessible from anywhere
+       }
+   };
+   ```
+
+In summary, the access specifiers in C++ control the accessibility of class members. `private` members are accessible only within the class, `protected` members are accessible within the class and its derived classes, and `public` members are accessible from anywhere. These access specifiers allow for encapsulation, data hiding, and defining the interface of a class, enabling proper access control and data abstraction.
+
+<a href="#top1">Go to top &#8593;</a>
+
+## 8. <a id="8">Explain the concept of inheritance in C++.</a>
+**answer:-** Inheritance is a fundamental concept in object-oriented programming (OOP) that allows a class to inherit properties and behaviors from another class. In C++, inheritance enables the creation of new classes (derived classes) based on existing classes (base or parent classes). The derived class inherits the members (data members and member functions) of the base class and can add its own members or modify the inherited ones.
+
+Inheritance provides several benefits, including code reuse, extensibility, and the ability to create class hierarchies. There are different types of inheritance, including single inheritance, multiple inheritance, and multilevel inheritance.
+
+Here's an example to illustrate the concept of inheritance:
+
+```cpp
+// Base class
+class Animal {
+protected:
+    string name;
+
+public:
+    Animal(string name) : name(name) {}
+
+    void eat() {
+        cout << name << " is eating." << endl;
+    }
+};
+
+// Derived class inheriting from Animal
+class Dog : public Animal {
+public:
+    Dog(string name) : Animal(name) {}
+
+    void bark() {
+        cout << name << " is barking." << endl;
+    }
+};
+
+int main() {
+    Dog dog("Buddy");
+    dog.eat();  // Inherited member function from Animal
+    dog.bark(); // Member function specific to Dog
+
+    return 0;
+}
+```
+
+In this example, we have a base class `Animal` that has a member variable `name` and a member function `eat()`. The derived class `Dog` is created by inheriting from `Animal` using the `public` access specifier (`: public Animal`). The derived class adds its own member function `bark()`.
+
+When we create an object of the `Dog` class, such as `dog`, it inherits the `name` member variable and the `eat()` member function from the `Animal` base class. We can use these inherited members directly. Additionally, we can access the `bark()` member function specific to the `Dog` class.
+
+The output of the program will be:
+```
+Buddy is eating.
+Buddy is barking.
+```
+
+In summary, inheritance in C++ allows classes to derive properties and behaviors from existing classes, promoting code reuse and extensibility. It facilitates the creation of class hierarchies and enables the specialization of classes based on their specific characteristics or functionalities.
+
+<a href="#top1">Go to top &#8593;</a>
+
+## 9. <a id="9">What are virtual functions? Why are they used?</a>
+**answer:-** Virtual functions are member functions in C++ that are declared in a base class and overridden in derived classes. They enable dynamic polymorphism, allowing the appropriate function implementation to be determined at runtime based on the actual type of the object being referred to. Virtual functions are used to achieve runtime polymorphism and enable the implementation of the concept known as "function overriding."
+
+Here's an example to illustrate the concept of virtual functions:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Base class
+class Shape {
+public:
+    virtual void draw() {
+        cout << "Drawing a shape." << endl;
+    }
+};
+
+// Derived class
+class Circle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing a circle." << endl;
+    }
+};
+
+// Derived class
+class Rectangle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing a rectangle." << endl;
+    }
+};
+
+int main() {
+    Shape* shapePtr;
+
+    Circle circle;
+    Rectangle rectangle;
+
+    shapePtr = &circle;
+    shapePtr->draw();  // Calls the overridden draw() function in Circle
+
+    shapePtr = &rectangle;
+    shapePtr->draw();  // Calls the overridden draw() function in Rectangle
+
+    return 0;
+}
+```
+
+In this example, we have a base class called "Shape" with a virtual member function called `draw()`. This function is declared as `virtual` in the base class to indicate that it can be overridden in derived classes.
+
+We create two derived classes, "Circle" and "Rectangle," that inherit from the base class "Shape." Each derived class overrides the `draw()` function with its own implementation.
+
+In the `main()` function, we declare a pointer of type "Shape" called `shapePtr`. We assign the address of a "Circle" object to `shapePtr` and then call the `draw()` function through the pointer. Since the `draw()` function is declared as `virtual`, the actual implementation called depends on the type of the object being referred to. In this case, it calls the overridden `draw()` function in the "Circle" class, printing "Drawing a circle."
+
+Next, we assign the address of a "Rectangle" object to `shapePtr` and call the `draw()` function again. This time, it calls the overridden `draw()` function in the "Rectangle" class, printing "Drawing a rectangle."
+
+The usage of virtual functions allows us to treat objects of different derived classes as objects of the base class, providing a way to achieve polymorphism. It enables more flexibility and extensibility in handling objects through base class pointers or references, allowing the appropriate derived class implementation to be invoked based on the actual object type at runtime.
+
+Without virtual functions, calling a member function through a base class pointer or reference would always invoke the base class's implementation, regardless of the actual object type. However, by declaring a function as `virtual` in the base class, we enable the dynamic binding mechanism to determine the correct derived class implementation to be called based on the object's type.
+
+In summary, virtual functions are used to achieve runtime polymorphism by allowing derived classes to override base class member functions. They enable the appropriate function implementation to be determined at runtime based on the actual object type, providing flexibility and extensibility in object-oriented programming.
+
+<a href="#top1">Go to top &#8593;</a>
+
+## 10. <a id="10">Real life example of object oriented programming?</a>
+**answer:-**
+https://www.c-sharpcorner.com/blogs/real-life-examples-of-object-oriented-programming1
+
+**read the above URL blog for better understanding**
+<a href="#top1">Go to top &#8593;</a>
+
+## 11. <a id="11">What is function overloading? How is it different from function overriding?</a>
+**answer:-** Polymorphism is a fundamental concept in object-oriented programming (OOP) that allows objects of different classes to be treated as objects of a common base class. It enables the use of a single interface to represent multiple related classes and provides the ability to perform different actions based on the actual object type at runtime. Polymorphism allows for code reusability, extensibility, and flexibility.
+
+In C++, polymorphism is primarily achieved through the use of virtual functions and function overriding. A virtual function is a member function in the base class that is declared with the `virtual` keyword. It allows derived classes to override the base class's implementation of the function with their own implementations.
+
+Polymorphism in C++ enables objects of different derived classes to be referred to using a pointer or reference of the base class type. When a virtual function is called through the base class pointer or reference, the actual implementation to be executed is determined based on the type of the object being referred to. This mechanism is known as dynamic dispatch or late binding.
+
+The key benefits of polymorphism in C++ include:
+
+1. Code reusability: By treating objects of different derived classes as objects of a common base class, you can write generic code that can work with different derived classes, avoiding code duplication.
+
+2. Extensibility: Polymorphism allows you to add new derived classes without modifying existing code. The base class interface remains the same, and you can handle new classes seamlessly as long as they adhere to the base class interface.
+
+3. Flexibility: Polymorphism enables writing code that operates on a general type (base class) and automatically adapts to handle specific types (derived classes) based on their individual implementations. This makes the code more versatile and easier to maintain.
+
+Polymorphism plays a crucial role in designing flexible and robust software systems, where objects can be treated uniformly despite their varying implementations. It promotes encapsulation, abstraction, and modularization, making code more modular, reusable, and maintainable.
+
+<a href="#top1">Go to top &#8593;</a>
