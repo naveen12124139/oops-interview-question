@@ -566,20 +566,78 @@ https://www.c-sharpcorner.com/blogs/real-life-examples-of-object-oriented-progra
 <a href="#top1">Go to top &#8593;</a>
 
 ## 11. <a id="11">What is function overloading? How is it different from function overriding?</a>
-**answer:-** Polymorphism is a fundamental concept in object-oriented programming (OOP) that allows objects of different classes to be treated as objects of a common base class. It enables the use of a single interface to represent multiple related classes and provides the ability to perform different actions based on the actual object type at runtime. Polymorphism allows for code reusability, extensibility, and flexibility.
+**answer:-** Function overloading and function overriding are two different concepts in C++ that involve the declaration and use of multiple functions with the same name. Let's explore each concept and understand their differences:
 
-In C++, polymorphism is primarily achieved through the use of virtual functions and function overriding. A virtual function is a member function in the base class that is declared with the `virtual` keyword. It allows derived classes to override the base class's implementation of the function with their own implementations.
+1. Function Overloading:
+Function overloading refers to the ability to define multiple functions with the same name but different parameters in a single scope. These functions can have the same name but must have different parameter lists (number, type, or order of parameters). The compiler determines which function to call based on the arguments provided during the function call.
 
-Polymorphism in C++ enables objects of different derived classes to be referred to using a pointer or reference of the base class type. When a virtual function is called through the base class pointer or reference, the actual implementation to be executed is determined based on the type of the object being referred to. This mechanism is known as dynamic dispatch or late binding.
+Example of function overloading:
 
-The key benefits of polymorphism in C++ include:
+```cpp
+#include <iostream>
+using namespace std;
 
-1. Code reusability: By treating objects of different derived classes as objects of a common base class, you can write generic code that can work with different derived classes, avoiding code duplication.
+void display(int num) {
+    cout << "Integer: " << num << endl;
+}
 
-2. Extensibility: Polymorphism allows you to add new derived classes without modifying existing code. The base class interface remains the same, and you can handle new classes seamlessly as long as they adhere to the base class interface.
+void display(double num) {
+    cout << "Double: " << num << endl;
+}
 
-3. Flexibility: Polymorphism enables writing code that operates on a general type (base class) and automatically adapts to handle specific types (derived classes) based on their individual implementations. This makes the code more versatile and easier to maintain.
+int main() {
+    display(5);        // Calls the display(int) function
+    display(3.14);     // Calls the display(double) function
 
-Polymorphism plays a crucial role in designing flexible and robust software systems, where objects can be treated uniformly despite their varying implementations. It promotes encapsulation, abstraction, and modularization, making code more modular, reusable, and maintainable.
+    return 0;
+}
+```
+
+In the above example, we have two overloaded functions named `display`. One takes an `int` parameter and the other takes a `double` parameter. Depending on the type of argument provided during the function call, the appropriate overloaded function is called. This allows for flexibility and code reusability when working with different data types.
+
+2. Function Overriding:
+Function overriding occurs in inheritance when a derived class provides its own implementation of a function that is already defined in its base class. The function in the base class must be declared as `virtual` or be a part of an interface (pure virtual function). The derived class provides a specific implementation of the function, and when called through a base class pointer or reference, the overridden function in the derived class is executed.
+
+Example of function overriding:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    virtual void makeSound() {
+        cout << "Animal makes a sound." << endl;
+    }
+};
+
+// Derived class
+class Dog : public Animal {
+public:
+    void makeSound() override {
+        cout << "Dog barks." << endl;
+    }
+};
+
+int main() {
+    Animal* animalPtr = new Dog;
+    animalPtr->makeSound();   // Calls the makeSound() function in Dog
+
+    return 0;
+}
+```
+
+In the above example, we have a base class `Animal` with a virtual function `makeSound()`. The derived class `Dog` overrides this function with its own implementation. When we create an object of the `Dog` class and assign its address to a base class pointer `animalPtr`, calling the `makeSound()` function through the pointer invokes the overridden function in the `Dog` class.
+
+The key differences between function overloading and function overriding are as follows:
+
+- Function overloading involves multiple functions with the same name but different parameters in a single scope, allowing for different behaviors based on parameter types. Function overriding occurs in inheritance and involves a base class and derived class, where the derived class provides its own implementation of a function already defined in the base class.
+
+- Function overloading is determined by the number, type, or order of parameters, whereas function overriding is determined by the type of the object being referred to at runtime.
+
+- Function overloading is resolved at compile-time, based on the arguments provided during the function call. Function overriding is resolved at runtime through the dynamic dispatch mechanism, based on the actual object type.
+
+Both function overloading and function overriding are powerful features of C++ that enhance code flexibility, reusability, and readability. They serve different purposes and can be used in different scenarios based on the requirements of the program.
 
 <a href="#top1">Go to top &#8593;</a>
